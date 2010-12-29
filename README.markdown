@@ -1,4 +1,3 @@
-
 What is this?
 =============
 
@@ -24,7 +23,7 @@ Who need this?
 ==============
 The native php5 build ships with Mac OS X 10.6 did not have intl 
 extension enabled. As a result, people who want to use intl extension 
-have to compile it themself.
+have to compile by themself.
 
 If your want to give Symfony2 (http://symfony-reloaded.org/) a try, 
 you will need this... 
