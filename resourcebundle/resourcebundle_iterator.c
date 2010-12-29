@@ -75,7 +75,8 @@ static void resourcebundle_iterator_dtor( zend_object_iterator *iter TSRMLS_DC )
 
 	resourcebundle_iterator_invalidate( iter TSRMLS_CC );
 
-	object->refcount--;
+	Z_DELREF_P(object);
+	
 
 	efree(iterator);
 }
@@ -162,7 +163,8 @@ zend_object_iterator *resourcebundle_get_iterator( zend_class_entry *ce, zval *o
 	     php_error( E_ERROR, "ResourceBundle does not support writable iterators" );
 	}
 
-	object->refcount++;
+	// HACK!!!
+	Z_ADDREF_P(object);
 	iterator->intern.data = (void *) object;
 	iterator->intern.funcs = &resourcebundle_iterator_funcs;
 

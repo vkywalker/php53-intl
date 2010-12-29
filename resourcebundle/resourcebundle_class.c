@@ -212,7 +212,8 @@ zval *resourcebundle_array_get(zval *object, zval *offset, int type TSRMLS_DC)
 	MAKE_STD_ZVAL(retval);
 
 	resourcebundle_array_fetch(object, offset, retval, 1 TSRMLS_CC);
-	retval->refcount--;
+	// HACK!!!
+	Z_DELREF_P(retval);
 	return retval;
 }
 /* }}} */
